@@ -28,7 +28,6 @@ import org.jrimum.domkee.financeiro.banco.febraban.Sacado;
 import org.jrimum.domkee.financeiro.banco.febraban.SacadorAvalista;
 import org.jrimum.domkee.financeiro.banco.febraban.TipoDeTitulo;
 import org.jrimum.domkee.financeiro.banco.febraban.Titulo;
-import org.jrimum.domkee.financeiro.banco.febraban.Titulo.EnumAceite;
 
 import com.lowagie.text.DocumentException;
 
@@ -101,7 +100,7 @@ public class MeuPrimeiroBoletoSicredi {
 		titulo.setDataDoDocumento(new Date());
 		titulo.setDataDoVencimento(new Date());
 		titulo.setTipoDeDocumento(TipoDeTitulo.DM_DUPLICATA_MERCANTIL);
-		titulo.setAceite(EnumAceite.A);
+		titulo.setAceite(Titulo.Aceite.A);
 
 		
 		/* 

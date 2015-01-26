@@ -49,7 +49,6 @@ import org.jrimum.domkee.financeiro.banco.febraban.Sacado;
 import org.jrimum.domkee.financeiro.banco.febraban.SacadorAvalista;
 import org.jrimum.domkee.financeiro.banco.febraban.TipoDeTitulo;
 import org.jrimum.domkee.financeiro.banco.febraban.Titulo;
-import org.jrimum.domkee.financeiro.banco.febraban.Titulo.EnumAceite;
 
 /**
  * <p>
@@ -124,7 +123,7 @@ public class MeuPrimeiroBoleto {
 		titulo.setDataDoDocumento(new Date());
 		titulo.setDataDoVencimento(new Date());
 		titulo.setTipoDeDocumento(TipoDeTitulo.DM_DUPLICATA_MERCANTIL);
-		titulo.setAceite(EnumAceite.A);
+		titulo.setAceite(Titulo.Aceite.A);
 		titulo.setDesconto(new BigDecimal(0.05));
 		titulo.setDeducao(BigDecimal.ZERO);
 		titulo.setMora(BigDecimal.ZERO);
