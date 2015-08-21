@@ -2,9 +2,9 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BB_PD" pageWidth="595" pageHeight="842" columnWidth="539" leftMargin="28" rightMargin="28" topMargin="28" bottomMargin="28" uuid="0a71492a-0e0e-46f0-93dd-163d8ca58b9c">
 	<property name="ireport.scriptlethandling" value="0"/>
 	<property name="ireport.encoding" value="UTF-8"/>
-	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.zoom" value="2.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="8"/>
 	<import value="net.sf.jasperreports.engine.*"/>
 	<import value="java.util.*"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
@@ -13,6 +13,7 @@
 	</queryString>
 	<field name="boleto" class="org.jrimum.bopepo.Boleto"/>
 	<field name="txtRsCedente" class="java.lang.String"/>
+	<field name="txtRsEnderecoCedente" class="java.lang.String"/>
 	<field name="txtRsAgenciaCodigoCedente" class="java.lang.String"/>
 	<field name="txtRsEspecie" class="java.lang.String"/>
 	<field name="txtRsLogoBanco" class="java.lang.Object"/>
@@ -264,7 +265,7 @@
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
 				</textElement>
-				<text><![CDATA[Instruções de responsabilidade do Beneficiário. Qualquer dúvida sobre este boleto, contate o Beneficiário.]]></text>
+				<text><![CDATA[Instruções de responsabilidade do Beneficiário. Qualquer dúvida sobre este boleto, contate o Beneficiário.)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="faaf759a-7abc-4bf7-85a7-1cd94b36b990" key="staticText-6" x="87" y="191" width="66" height="8"/>
@@ -501,20 +502,7 @@
 				<text><![CDATA[Pagador:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="736f5d4e-b47b-4f53-bdb8-8d62e27a9f54" key="staticText-26" x="340" y="345" width="68" height="8"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
-				</textElement>
-				<text><![CDATA[Autenticação Mecânica]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="a0fe9c63-f704-4b3f-8b72-6ced4b7bfe61" key="staticText-27" x="418" y="345" width="113" height="11"/>
+				<reportElement uuid="736f5d4e-b47b-4f53-bdb8-8d62e27a9f54" key="staticText-26" x="351" y="345" width="98" height="10"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -522,7 +510,20 @@
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Arial" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
+					<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Autenticação Mecânica /]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a0fe9c63-f704-4b3f-8b72-6ced4b7bfe61" key="staticText-27" x="451" y="345" width="81" height="10"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<text><![CDATA[FICHA DE COMPENSAÇÃO]]></text>
 			</staticText>
@@ -850,7 +851,7 @@
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement uuid="aa560820-d9d8-458d-8c63-0bc46a0947a3" key="line-31" x="158" y="49" width="1" height="17"/>
+				<reportElement uuid="aa560820-d9d8-458d-8c63-0bc46a0947a3" key="line-31" x="158" y="66" width="1" height="17"/>
 				<graphicElement>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</graphicElement>
@@ -862,13 +863,13 @@
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement uuid="0ec30679-ea37-4cc1-b928-5c93ab5931da" key="line-33" x="396" y="33" width="1" height="50"/>
+				<reportElement uuid="0ec30679-ea37-4cc1-b928-5c93ab5931da" key="line-33" x="396" y="33" width="1" height="17"/>
 				<graphicElement>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement uuid="c3f3273b-b51a-4c18-b91c-b33554228435" key="staticText-31" x="268" y="49" width="60" height="8"/>
+				<reportElement uuid="c3f3273b-b51a-4c18-b91c-b33554228435" key="staticText-31" x="268" y="66" width="60" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -881,7 +882,7 @@
 				<text><![CDATA[Data de Vencimento]]></text>
 			</staticText>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement uuid="31f1e909-aac6-495d-9121-8ed50d6a822f" key="textField-37" x="271" y="56" width="46" height="9"/>
+				<reportElement uuid="31f1e909-aac6-495d-9121-8ed50d6a822f" key="textField-37" x="271" y="72" width="46" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -965,19 +966,19 @@
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement uuid="7fe14d33-ca89-4461-a07b-fb730670eb70" key="line-40" x="95" y="67" width="1" height="17"/>
+				<reportElement uuid="7fe14d33-ca89-4461-a07b-fb730670eb70" key="line-40" x="95" y="84" width="1" height="17"/>
 				<graphicElement>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement uuid="ba93f3d0-dade-40e3-bf9b-c8bf5134b161" key="line-41" x="180" y="67" width="1" height="17"/>
+				<reportElement uuid="ba93f3d0-dade-40e3-bf9b-c8bf5134b161" key="line-41" x="180" y="83" width="1" height="17"/>
 				<graphicElement>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement uuid="8235dc42-390e-4ed4-8d0e-dc6ba0445121" key="staticText-39" x="398" y="49" width="82" height="8"/>
+				<reportElement uuid="8235dc42-390e-4ed4-8d0e-dc6ba0445121" key="staticText-39" x="399" y="66" width="82" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -990,7 +991,7 @@
 				<text><![CDATA[Valor do Documento]]></text>
 			</staticText>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement uuid="1148ba0f-c970-44d0-8ba4-a9c13c717dc1" key="textField-43" x="398" y="56" width="74" height="9"/>
+				<reportElement uuid="1148ba0f-c970-44d0-8ba4-a9c13c717dc1" key="textField-43" x="399" y="72" width="74" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1003,7 +1004,7 @@
 				<textFieldExpression><![CDATA[$F{txtRsValorDocumento}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="d700ccdd-26ea-443a-bcf0-3266631a44ce" key="staticText-40" x="11" y="66" width="80" height="8"/>
+				<reportElement uuid="d700ccdd-26ea-443a-bcf0-3266631a44ce" key="staticText-40" x="11" y="83" width="80" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1016,7 +1017,7 @@
 				<text><![CDATA[(-) Descontos / Abatimentos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="dab773ac-6857-4a8e-ad33-34bad40bf6aa" key="staticText-41" x="183" y="66" width="82" height="8"/>
+				<reportElement uuid="dab773ac-6857-4a8e-ad33-34bad40bf6aa" key="staticText-41" x="183" y="83" width="82" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1029,7 +1030,7 @@
 				<text><![CDATA[(+) Mora / Multa]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="84030683-cbbb-42fa-b3ae-565c3c5597d2" key="staticText-42" x="399" y="66" width="82" height="8"/>
+				<reportElement uuid="84030683-cbbb-42fa-b3ae-565c3c5597d2" key="staticText-42" x="399" y="83" width="82" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1042,7 +1043,7 @@
 				<text><![CDATA[(=) Valor cobrado]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="5762c0a2-b767-466f-8a6d-081794a5e1cd" key="staticText-44" x="11" y="49" width="66" height="8"/>
+				<reportElement uuid="5762c0a2-b767-466f-8a6d-081794a5e1cd" key="staticText-44" x="11" y="66" width="66" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1055,7 +1056,7 @@
 				<text><![CDATA[Número do Documento]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="a0ab3cbc-dd37-4ae6-9e03-4f6e048682d7" key="textField-44" x="13" y="56" width="71" height="9"/>
+				<reportElement uuid="a0ab3cbc-dd37-4ae6-9e03-4f6e048682d7" key="textField-44" x="13" y="72" width="71" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1144,7 +1145,7 @@
 				<textFieldExpression><![CDATA[$F{txtRsNossoNumero}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="bf2ad37d-1c9b-45ce-82cf-6d72818b4858" key="staticText-51" x="11" y="83" width="33" height="8"/>
+				<reportElement uuid="bf2ad37d-1c9b-45ce-82cf-6d72818b4858" key="staticText-51" x="11" y="100" width="33" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1157,7 +1158,7 @@
 				<text><![CDATA[Pagador]]></text>
 			</staticText>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="b5702c03-e75a-46af-bbda-380c50d50d8b" key="textField-54" x="13" y="39" width="257" height="9"/>
+				<reportElement uuid="b5702c03-e75a-46af-bbda-380c50d50d8b" key="textField-54" x="13" y="39" width="215" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1170,7 +1171,7 @@
 				<textFieldExpression><![CDATA[$F{txtRsCedente}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="442bd6aa-fd6c-46d9-b998-f0400791d454" key="textField-55" x="13" y="90" width="256" height="9"/>
+				<reportElement uuid="442bd6aa-fd6c-46d9-b998-f0400791d454" key="textField-55" x="13" y="107" width="162" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1196,7 +1197,7 @@
 				<textFieldExpression><![CDATA[$F{txtRsQuantidade}]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement uuid="7bd54777-72b1-4571-9547-a432f2c5a67e" key="textField-43" x="13" y="73" width="74" height="9"/>
+				<reportElement uuid="7bd54777-72b1-4571-9547-a432f2c5a67e" key="textField-43" x="13" y="90" width="74" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1209,7 +1210,7 @@
 				<textFieldExpression><![CDATA[$F{txtRsDescontoAbatimento}]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement uuid="2ed7d5e1-6722-4a44-a38d-c114e0359746" key="textField-43" x="184" y="73" width="74" height="9"/>
+				<reportElement uuid="2ed7d5e1-6722-4a44-a38d-c114e0359746" key="textField-43" x="184" y="90" width="74" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1222,7 +1223,7 @@
 				<textFieldExpression><![CDATA[$F{txtRsMoraMulta}]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement uuid="ddac5f8d-f3e9-43af-b6af-d2eadc1d9301" key="textField-43" x="400" y="73" width="74" height="9"/>
+				<reportElement uuid="ddac5f8d-f3e9-43af-b6af-d2eadc1d9301" key="textField-43" x="400" y="90" width="74" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1471,7 +1472,7 @@
 				</graphicElement>
 			</line>
 			<textField isBlankWhenNull="true">
-				<reportElement uuid="891f239a-e132-4c4a-a24f-df232548f0f8" key="textField-55" x="13" y="107" width="395" height="9"/>
+				<reportElement uuid="891f239a-e132-4c4a-a24f-df232548f0f8" key="textField-55" x="184" y="107" width="217" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1484,7 +1485,7 @@
 				<textFieldExpression><![CDATA[$F{txtRsInstrucaoAoSacado}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="31503e33-b95d-452a-ad26-1d0bcbfaeb5f" key="staticText-51" x="11" y="100" width="33" height="8"/>
+				<reportElement uuid="31503e33-b95d-452a-ad26-1d0bcbfaeb5f" key="staticText-51" x="183" y="100" width="33" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1540,7 +1541,7 @@
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement uuid="ee4daa43-572e-4db6-aeb7-489497b4b453" key="staticText-41" x="161" y="49" width="42" height="8"/>
+				<reportElement uuid="ee4daa43-572e-4db6-aeb7-489497b4b453" key="staticText-41" x="161" y="66" width="42" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1553,13 +1554,13 @@
 				<text><![CDATA[CPF / CNPJ]]></text>
 			</staticText>
 			<line>
-				<reportElement uuid="a7d23048-dfdc-4d76-a840-7f02f055c577" key="line-31" x="265" y="49" width="1" height="17"/>
+				<reportElement uuid="a7d23048-dfdc-4d76-a840-7f02f055c577" key="line-31" x="265" y="66" width="1" height="17"/>
 				<graphicElement>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</graphicElement>
 			</line>
 			<staticText>
-				<reportElement uuid="731d623e-06c4-4d38-a6f4-c3f13431424c" key="staticText-40" x="97" y="66" width="80" height="8"/>
+				<reportElement uuid="731d623e-06c4-4d38-a6f4-c3f13431424c" key="staticText-40" x="97" y="83" width="80" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1572,7 +1573,7 @@
 				<text><![CDATA[(-) Outras deduções]]></text>
 			</staticText>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement uuid="91a858a7-f83b-434f-a933-0f79eb5f6f01" key="textField-43" x="100" y="73" width="74" height="9"/>
+				<reportElement uuid="91a858a7-f83b-434f-a933-0f79eb5f6f01" key="textField-43" x="100" y="90" width="74" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1585,7 +1586,7 @@
 				<textFieldExpression><![CDATA[$F{txtRsOutraDeducao}]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement uuid="04d66888-d769-46da-a338-8a9189bf6620" key="textField-37" x="164" y="56" width="94" height="9"/>
+				<reportElement uuid="04d66888-d769-46da-a338-8a9189bf6620" key="textField-37" x="164" y="72" width="94" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1598,7 +1599,7 @@
 				<textFieldExpression><![CDATA[$F{txtRsCpfCnpj}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="7bb4862a-eb4a-4d9d-b7f0-9977264ae3e5" key="staticText-41" x="283" y="66" width="82" height="8"/>
+				<reportElement uuid="7bb4862a-eb4a-4d9d-b7f0-9977264ae3e5" key="staticText-41" x="283" y="83" width="82" height="8"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1611,7 +1612,7 @@
 				<text><![CDATA[(+) Outros acréscimos]]></text>
 			</staticText>
 			<line>
-				<reportElement uuid="773bac90-2bfe-478b-8ca8-79053935dd8e" key="line-41" x="280" y="67" width="1" height="17"/>
+				<reportElement uuid="773bac90-2bfe-478b-8ca8-79053935dd8e" key="line-41" x="280" y="84" width="1" height="17"/>
 				<graphicElement>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 				</graphicElement>
@@ -1630,7 +1631,7 @@
 				<textFieldExpression><![CDATA[$F{txtFcLinhaDigitavel}]]></textFieldExpression>
 			</textField>
 			<textField pattern="" isBlankWhenNull="true">
-				<reportElement uuid="995689de-7b3e-4f37-af02-23da85ce60b7" key="textField-43" x="284" y="73" width="74" height="9"/>
+				<reportElement uuid="995689de-7b3e-4f37-af02-23da85ce60b7" key="textField-43" x="284" y="90" width="74" height="9"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -1671,6 +1672,44 @@
 					<font fontName="Arial" size="8" isBold="true" pdfFontName="Helvetica-Bold"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{txtRsLogoBanco}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="773bac90-2bfe-478b-8ca8-79053935dd8e" key="line-41" x="180" y="100" width="1" height="17"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="0ec30679-ea37-4cc1-b928-5c93ab5931da" key="line-33" x="396" y="66" width="1" height="34"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="606023cc-51ee-454f-9e1b-ea71c512ff51" key="staticText-46" x="11" y="49" width="99" height="8"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Endereço do Beneficiário]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="b5702c03-e75a-46af-bbda-380c50d50d8b" key="textField-54" x="13" y="56" width="509" height="9"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{txtRsEnderecoCedente}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
