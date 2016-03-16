@@ -63,7 +63,7 @@ import org.jrimum.bopepo.Boleto;
  */
 public class JasperViewer extends AbstractViewer {
 	private Map<String, Object>	fields;
-
+	private String customTemplate;
 	private static String		TEMPLATE_PADRAO	= "/jasper/BoletoTemplate.jrxml";
 
 	@Override
@@ -137,6 +137,17 @@ public class JasperViewer extends AbstractViewer {
 	 * @since
 	 */
 	private String getTemplateFromResource() {
-		return TEMPLATE_PADRAO;
+		if (customTemplate == null)
+			return TEMPLATE_PADRAO;
+		else
+			return customTemplate;
+	}
+
+	public String getCustomTemplate() {
+		return customTemplate;
+	}
+	
+	public void setCustomTemplate(String customTemplate) {
+		this.customTemplate = customTemplate;
 	}
 }
