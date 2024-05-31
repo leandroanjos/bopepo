@@ -80,14 +80,6 @@ public class FatorDeVencimento{
 	private static final Date DATA_BASE_DO_FATOR_DE_VENCIMENTO = BASE_DO_FATOR_DE_VENCIMENTO.getTime();
 
 	/**
-	 *<p>
-	 * Data máxima alcançada pelo fator de vencimento com base fixada em
-	 * 07/10/1997.
-	 * </p>
-	 */
-	private static final Date DATA_LIMITE_DO_FATOR_DE_VENCIMENTO = new GregorianCalendar(2025, Calendar.FEBRUARY, 21).getTime();
-
-	/**
 	 * <p>
 	 * Calcula o fator de vencimento a partir da subtração entre a DATA DE
 	 * VENCIMENTO de um título e a DATA BASE fixada em 07/10/1997.
@@ -147,8 +139,15 @@ public class FatorDeVencimento{
 			Date dataTruncada = DateUtils.truncate(data, Calendar.DATE);
 			
 			checkIntervalo(dataTruncada);
+
+			Integer diffDatas =  (int) Dates.calculeDiferencaEmDias(DATA_BASE_DO_FATOR_DE_VENCIMENTO, dataTruncada);
+
+			if (diffDatas > 9999) {
+				// Volta para 1000 a partir do dia 22/02/2025
+				diffDatas -= 9000;
+			}
 				
-			return (int) Dates.calculeDiferencaEmDias(DATA_BASE_DO_FATOR_DE_VENCIMENTO, dataTruncada);
+			return diffDatas;
 		}
 	}
 	
@@ -177,28 +176,23 @@ public class FatorDeVencimento{
 
 	/**
 	 * <p>
-	 * Lança exceção caso a {@code dataVencimentoTruncada} esteja fora do
-	 * intervalo entre a {@link #DATA_BASE_DO_FATOR_DE_VENCIMENTO} e a
-	 * {@link #DATA_LIMITE_DO_FATOR_DE_VENCIMENTO}.
+	 * Lança exceção caso a {@code dataVencimentoTruncada} seja menor do
+	 * que a {@link #DATA_BASE_DO_FATOR_DE_VENCIMENTO}
 	 * </p>
 	 * 
 	 * @param dataVencimentoTruncada
 	 *            data de vencimento truncada com {@code
 	 *            DateUtils.truncate(date, Calendar.DATE)}
 	 * @throws IllegalArgumentException
-	 *             Caso a data esteja {@code dataVencimentoTruncada} esteja fora
-	 *             do intervalo entre a
-	 *             {@link #DATA_BASE_DO_FATOR_DE_VENCIMENTO} e a
-	 *             {@link #DATA_LIMITE_DO_FATOR_DE_VENCIMENTO}
+	 *             Caso a data seja {@code dataVencimentoTruncada} menor que
+	 *             {@link #DATA_BASE_DO_FATOR_DE_VENCIMENTO}
 	 */
 	private static void checkIntervalo(Date dataVencimentoTruncada) throws IllegalArgumentException {
 		
-		if(dataVencimentoTruncada.before(DATA_BASE_DO_FATOR_DE_VENCIMENTO)
-				|| dataVencimentoTruncada.after(DATA_LIMITE_DO_FATOR_DE_VENCIMENTO)) {
-			
+		if(dataVencimentoTruncada.before(DATA_BASE_DO_FATOR_DE_VENCIMENTO)) {
 			throw new IllegalArgumentException(
-					format("Para o cálculo do fator de vencimento se faz necessário informar uma data entre %s e %s.",
-					DDMMYYYY_B.format(DATA_BASE_DO_FATOR_DE_VENCIMENTO), DDMMYYYY_B.format(DATA_LIMITE_DO_FATOR_DE_VENCIMENTO)));
+					format("Para o cálculo do fator de vencimento se faz necessário informar maior que %s.",
+					DDMMYYYY_B.format(DATA_BASE_DO_FATOR_DE_VENCIMENTO)));
 					
 		}
 	}
