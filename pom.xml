@@ -6,16 +6,20 @@
 	<artifactId>bopepo</artifactId>
 	<packaging>jar</packaging>
 	<name>Projeto Bopepo</name>
-	<version>0.3.1-SNAPSHOT</version>
+	<version>0.3.2-20240531</version>
 	<description>Projeto open source de componentes de software para o domínio de negócios do Brasil.</description>
 	<url>http://www.jrimum.org/bopepo</url>
 
 	<repositories>
 		<repository>
-			<id>jrimum.org</id>
-			<url>http://jrimum.org/maven/content/groups/public/</url>
+			<id>brax-nexus-public-group</id>
+			<url>http://dev.brax.com.br:8081/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
 			<snapshots>
 				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
 			</snapshots>
 		</repository>
 	</repositories>
@@ -76,9 +80,6 @@
 				<directory>src/main/resources</directory>
 			</resource>
 			<resource>
-				<directory>src/test/resources</directory>
-			</resource>
-			<resource>
 				<directory>src/examples/resources</directory>
 			</resource>
 		</resources>
@@ -87,88 +88,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.1</version>
+				<version>3.8.1</version>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.5</version>
-				<executions>
-					<execution>
-						<id>add-sources</id>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>add-source</goal>
-						</goals>
-						<configuration>
-							<sources>
-								<source>src/examples/java</source>
-							</sources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2</version>
-				<configuration>
-					<descriptors>
-                        <descriptor>src/main/assembly/bopepo-dependencias-jrimum.xml</descriptor>
-                        <descriptor>src/main/assembly/bopepo-dependencias-jrimum-src.xml</descriptor>
-                    </descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<id>make-assembly</id>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<skipTests>true</skipTests>
-					<includes>
-						<include>org/jrimum/bopepo/**/*</include>
-					</includes>
-					<excludes>
-						<exclude>org/jrimum/bopepo/excludes/**/*</exclude>
-						<exclude>org/jrimum/bopepo/**/*$*</exclude> <!-- Exclui classes internas anônimas para evitar erros -->
-					</excludes>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<includeDependencySources>true</includeDependencySources>
-					<dependencySourceIncludes>
-						<dependencySourceInclude>org.jrimum:*</dependencySourceInclude>
-					</dependencySourceIncludes>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-javadoc</id>
-						<phase>package</phase>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -185,28 +109,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.jrimum</groupId>
-			<artifactId>jrimum-domkee</artifactId>
-			<version>0.2.3-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.lowagie</groupId>
-			<artifactId>itext</artifactId>
-			<version>2.0.8</version>
-			<exclusions>
-				<exclusion>
-					<groupId>bouncycastle</groupId>
-					<artifactId>bcmail-jdk14</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>bouncycastle</groupId>
-					<artifactId>bcprov-jdk14</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>bouncycastle</groupId>
-					<artifactId>bctsp-jdk14</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -215,9 +120,19 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.jrimum</groupId>
+			<artifactId>jrimum-domkee</artifactId>
+			<version>0.2.3-20240509</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jrimum</groupId>
+			<artifactId>jrimum-texgit</artifactId>
+			<version>0.2.0-20140202</version>
+		</dependency>
+		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
-			<version>3.7.6</version>
+			<version>5.6.1</version>
 			<exclusions>
 				<exclusion>
 					<artifactId>xml-apis</artifactId>

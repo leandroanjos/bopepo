@@ -108,11 +108,11 @@ public class JasperViewer extends AbstractViewer {
 		return jasperReport;
 	}
 
-	private Collection<Map<String, Object>> getFields(Collection<Boleto> boletos) throws Exception {
-		Collection<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+	private Collection<Map<String, ?>> getFields(Collection<Boleto> boletos) throws Exception {
+		Collection<Map<String, ?>> list = new ArrayList();
 
 		for (Boleto boleto : boletos) {
-			fields = new HashMap<String, Object>();
+			fields = new HashMap();
 
 			this.boleto = boleto;
 
